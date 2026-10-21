@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pixelmarks</string>
+    <string name="save_to_pixelmarks">Save to Pixelmarks</string>
+    <string name="all_bookmarks">All Bookmarks</string>
+    <string name="favorites">Favorites</string>
+    <string name="reminders">Reminders</string>
+    <string name="unsorted">Unsorted</string>
+    <string name="archive">Archive</string>
+    <string name="collections">Collections</string>
+    <string name="search_hint">Search your bookmarks…</string>
+    <string name="quick_add_hint">Paste a link to save instantly</string>
+    <string name="new_bookmark">New bookmark</string>
+    <string name="new_collection">New collection</string>
+    <string name="refresh_metadata">Refresh metadata &amp; thumbnail</string>
+</resources>
