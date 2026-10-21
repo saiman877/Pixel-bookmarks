@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+ * Material 3 Expressive tokens
+ * Color roles are generated at runtime by @material/material-color-utilities
+ * (see src/lib/color.ts) and injected as --md-* variables.
+ * ------------------------------------------------------------------------- */
+@theme inline {
+  --color-primary: var(--md-primary);
+  --color-on-primary: var(--md-on-primary);
+  --color-primary-container: var(--md-primary-container);
+  --color-on-primary-container: var(--md-on-primary-container);
+  --color-inverse-primary: var(--md-inverse-primary);
+  --color-secondary: var(--md-secondary);
+  --color-on-secondary: var(--md-on-secondary);
+  --color-secondary-container: var(--md-secondary-container);
+  --color-on-secondary-container: var(--md-on-secondary-container);
+  --color-tertiary: var(--md-tertiary);
+  --color-on-tertiary: var(--md-on-tertiary);
+  --color-tertiary-container: var(--md-tertiary-container);
+  --color-on-tertiary-container: var(--md-on-tertiary-container);
+  --color-error: var(--md-error);
+  --color-on-error: var(--md-on-error);
+  --color-error-container: var(--md-error-container);
+  --color-on-error-container: var(--md-on-error-container);
+  --color-background: var(--md-background);
+  --color-on-background: var(--md-on-background);
+  --color-surface: var(--md-surface);
+  --color-on-surface: var(--md-on-surface);
+  --color-surface-variant: var(--md-surface-variant);
+  --color-on-surface-variant: var(--md-on-surface-variant);
+  --color-surface-dim: var(--md-surface-dim);
+  --color-surface-bright: var(--md-surface-bright);
+  --color-surface-container-lowest: var(--md-surface-container-lowest);
+  --color-surface-container-low: var(--md-surface-container-low);
+  --color-surface-container: var(--md-surface-container);
+  --color-surface-container-high: var(--md-surface-container-high);
+  --color-surface-container-highest: var(--md-surface-container-highest);
+  --color-inverse-surface: var(--md-inverse-surface);
+  --color-inverse-on-surface: var(--md-inverse-on-surface);
+  --color-outline: var(--md-outline);
+  --color-outline-variant: var(--md-outline-variant);
+  --color-scrim: var(--md-scrim);
+  --color-shadow: var(--md-shadow);
+  --color-primary-fixed: var(--md-primary-fixed);
+  --color-primary-fixed-dim: var(--md-primary-fixed-dim);
+  --color-on-primary-fixed: var(--md-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--md-on-primary-fixed-variant);
+  --color-secondary-fixed: var(--md-secondary-fixed);
+  --color-on-secondary-fixed: var(--md-on-secondary-fixed);
+  --color-tertiary-fixed: var(--md-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--md-tertiary-fixed-dim);
+  --color-on-tertiary-fixed: var(--md-on-tertiary-fixed);
+
+  /* Per-collection tonal palette (see .palette below) */
+  --color-c-container: var(--c-container);
+  --color-c-on-container: var(--c-on-container);
+  --color-c-accent: var(--c-accent);
+  --color-c-on-accent: var(--c-on-accent);
+  --color-c-soft: var(--c-soft);
+  --color-c-on-soft: var(--c-on-soft);
+
+  --font-sans: var(--font-flex), ui-sans-serif, system-ui, sans-serif;
+
+  /* M3 Expressive motion springs, baked into CSS linear() curves */
+  --ease-spring-fast: linear(0, 0.021, 0.075, 0.154, 0.249, 0.352, 0.458, 0.561, 0.659, 0.748, 0.827, 0.895, 0.952, 0.998, 1.034, 1.06, 1.078, 1.089, 1.094, 1.094, 1.091, 1.084, 1.076, 1.066, 1.056, 1.047, 1.037, 1.028, 1.02, 1.013, 1.007, 1.002, 0.998, 0.995, 0.993, 0.992, 0.991, 0.991, 0.991, 0.992, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.998, 0.998, 1);
+  --ease-spring: linear(0, 0.014, 0.051, 0.103, 0.167, 0.238, 0.311, 0.385, 0.457, 0.526, 0.591, 0.651, 0.705, 0.754, 0.798, 0.836, 0.869, 0.898, 0.923, 0.943, 0.96, 0.974, 0.985, 0.994, 1.001, 1.006, 1.01, 1.012, 1.014, 1.015, 1.015, 1.015, 1.014, 1.014, 1.013, 1.012, 1.01, 1.009, 1.008, 1.007, 1.006, 1.005, 1.004, 1.004, 1.003, 1.002, 1.002, 1.002, 1);
+  --ease-spring-slow: linear(0, 0.013, 0.049, 0.1, 0.162, 0.23, 0.302, 0.374, 0.445, 0.513, 0.577, 0.637, 0.692, 0.741, 0.785, 0.824, 0.859, 0.888, 0.914, 0.935, 0.953, 0.968, 0.98, 0.99, 0.998, 1.004, 1.008, 1.011, 1.013, 1.014, 1.015, 1.015, 1.015, 1.014, 1.013, 1.012, 1.011, 1.01, 1.009, 1.008, 1.007, 1.006, 1.005, 1.004, 1.004, 1.003, 1.002, 1.002, 1);
+  --ease-effects: linear(0, 0.078, 0.235, 0.401, 0.549, 0.669, 0.762, 0.831, 0.882, 0.918, 0.944, 0.962, 0.974, 0.982, 0.988, 0.992, 0.995, 0.996, 0.998, 0.998, 1);
+  --ease-bouncy: linear(0, 0.021, 0.079, 0.164, 0.268, 0.385, 0.506, 0.626, 0.741, 0.846, 0.94, 1.019, 1.084, 1.134, 1.17, 1.193, 1.204, 1.204, 1.197, 1.182, 1.163, 1.14, 1.115, 1.091, 1.066, 1.043, 1.023, 1.005, 0.99, 0.978, 0.969, 0.963, 0.959, 0.958, 0.959, 0.961, 0.964, 0.969, 0.973, 0.979, 0.984, 0.989, 0.993, 0.997, 1, 1.003, 1.005, 1.007, 1.008, 1.009, 1.009, 1.008, 1.008, 1.007, 1.006, 1.005, 1.004, 1.003, 1.002, 1.001, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  --shadow-e1: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 1px 3px 1px rgb(0 0 0 / 0.15);
+  --shadow-e2: 0 1px 2px 0 rgb(0 0 0 / 0.3), 0 2px 6px 2px rgb(0 0 0 / 0.15);
+  --shadow-e3: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 4px 8px 3px rgb(0 0 0 / 0.15);
+  --shadow-e4: 0 2px 3px 0 rgb(0 0 0 / 0.3), 0 6px 10px 4px rgb(0 0 0 / 0.15);
+}
+
+/* ------------------------------- type scale ------------------------------ */
+@utility type-display-l { font-size: 57px; line-height: 64px; letter-spacing: -0.25px; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-display-m { font-size: 45px; line-height: 52px; letter-spacing: -0.2px; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-display-s { font-size: 36px; line-height: 44px; letter-spacing: 0; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-headline-l { font-size: 32px; line-height: 40px; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-headline-m { font-size: 28px; line-height: 36px; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-headline-s { font-size: 24px; line-height: 32px; font-weight: 500; font-variation-settings: "ROND" 100; }
+@utility type-title-l { font-size: 22px; line-height: 28px; font-weight: 500; font-variation-settings: "ROND" 60; }
+@utility type-title-m { font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0.1px; }
+@utility type-title-s { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1px; }
+@utility type-body-l { font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0.2px; }
+@utility type-body-m { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0.15px; }
+@utility type-body-s { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.3px; }
+@utility type-label-l { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0.1px; }
+@utility type-label-m { font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.4px; }
+@utility type-label-s { font-size: 11px; line-height: 16px; font-weight: 600; letter-spacing: 0.4px; }
+
+/* Interaction state layer (hover 8% / focus 10% / pressed 12%) */
+@utility state-layer {
+  position: relative;
+  isolation: isolate;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 160ms linear;
+  }
+  &:hover::after { opacity: 0.08; }
+  &:focus-visible::after { opacity: 0.1; }
+  &:active::after { opacity: 0.12; }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+/* Collection palettes: both light & dark sets are inlined; pick by mode. */
+.palette {
+  --c-container: var(--pl-container);
+  --c-on-container: var(--pl-on-container);
+  --c-accent: var(--pl-accent);
+  --c-on-accent: var(--pl-on-accent);
+  --c-soft: var(--pl-soft);
+  --c-on-soft: var(--pl-on-soft);
+}
+:root.dark .palette {
+  --c-container: var(--pd-container);
+  --c-on-container: var(--pd-on-container);
+  --c-accent: var(--pd-accent);
+  --c-on-accent: var(--pd-on-accent);
+  --c-soft: var(--pd-soft);
+  --c-on-soft: var(--pd-on-soft);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) .palette {
+    --c-container: var(--pd-container);
+    --c-on-container: var(--pd-on-container);
+    --c-accent: var(--pd-accent);
+    --c-on-accent: var(--pd-on-accent);
+    --c-soft: var(--pd-soft);
+    --c-on-soft: var(--pd-on-soft);
+  }
+}
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background: var(--md-surface-container);
+    color: var(--md-on-surface);
+    font-family: var(--font-flex), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+  }
+  :focus-visible {
+    outline: 3px solid var(--md-secondary);
+    outline-offset: 2px;
+  }
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--md-outline-variant) transparent;
+  }
+}
+
+/* Material Symbols Rounded (self-hosted, subset) */
+.msym {
+  font-family: var(--font-symbols);
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
+  user-select: none;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings:
+    "FILL" var(--icon-fill, 0),
+    "wght" var(--icon-wght, 400),
+    "GRAD" var(--icon-grad, 0),
+    "opsz" var(--icon-opsz, 24);
+  transition: font-variation-settings 220ms var(--ease-emphasized);
+}
+
+/* Wavy indeterminate progress */
+@keyframes wavy-seg {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(260%); }
+}
+@keyframes wave-shift {
+  to { transform: translateX(-20px); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-wavy-seg { animation: wavy-seg 1.9s cubic-bezier(0.45, 0.05, 0.35, 1) infinite; }
+.animate-wave-shift { animation: wave-shift 0.45s linear infinite; }
+.animate-spin-slow { animation: spin-slow 40s linear infinite; }
+.animate-spin-med { animation: spin-slow 12s linear infinite; }
+.animate-float { animation: float-y 6s ease-in-out infinite; }
+
+/* Circular reveal theme switch */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
